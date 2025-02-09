@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-  <title>GioGPT</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GioGPT - Your Personal Chatbot</title>
+  <meta name="description" content="GioGPT is a sleek, efficient chatbot offering quick and helpful responses." />
+  <meta property="og:image" content="https://giogpt.com/GioGPTpfp.png" /> 
+
+    <link rel="icon" href="GioGPTpfp.png" type="image/png" sizes="32x32" />
+  <link rel="stylesheet" href="style.css"/>
+  <!-- For icons if needed -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Marked library for Markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
+  <!-- Simple header (optional) -->
   <header class="top-header">
-    <h1>GioGPT</h1>
-    <span class="material-symbols-rounded hamburger-icon">menu</span>
-    <nav class="nav-menu">
-      <ul>
-        <li><a href="#chat">Chat with GioGPT</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-      </ul>
-    </nav>
+    <!-- Removed the <h1>GioGPT</h1> -->
+    <img src="GioGPT.png" alt="GioGPT" class="header-logo"/>
   </header>
 
-  <!-- Main Content -->
-  <section id="chat" class="chatbox-wrapper">
+  <!-- Chat UI -->
+  <section class="chatbox-wrapper">
     <div class="message-box">
       <div class="chat response">
-        <img src="img/GioGPT.jpg">
-        <span>Hello there! <br> 
-          How can I help you today.
+        <img src="GioGPTpfp.png" alt="GioGPT Avatar" />
+        <span>
+          Hello there! <br />
+          How can I help you today?
         </span>
       </div>
     </div>
     <div class="messagebar">
       <div class="bar-wrapper">
-        <input type="text" placeholder="Enter your message...">
+        <input type="text" placeholder="Enter your message..." />
         <button>
           <span class="material-symbols-rounded">send</span>
         </button>
@@ -44,31 +52,7 @@
     </div>
   </section>
 
-  <!-- About GioGPT Section -->
-  <section id="about">
-    <h2>About GioGPT</h2>
-    <p>Welcome to GioGPT! This website was designed by Jack Giordano, a passionate student at Virginia Tech, majoring in Computer Science with a minor in Mathematics. As someone who enjoys tackling complex problems and creating efficient solutions, I designed this chatbot to reflect that philosophy—short, to the point, and effective.</p>
-    
-    <p>The idea behind GioGPT is simple: to offer concise, intelligent responses that help users quickly find the information they need. Whether you're here for quick answers or just casual conversations, GioGPT is designed to make your experience fast and streamlined.</p>
-    <p> </p>
-    <p>Currently, I'm in the final stages of my academic journey and actively seeking a full-time role as a software engineer. Looking ahead, there are exciting plans to expand this project even further. In the coming months, I'm working on developing a dedicated GioGPT app for iOS, so stay tuned for more updates!</p>
-    <p> </p>
-    <p>Thank you for visiting, and I hope GioGPT helps you just as much as it has helped me.</p>
-    <p> </p>
-    <p>— Jack Giordano</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>I’d love to hear from you! Whether you have questions, feedback, or just want to get in touch, feel free to reach out to me directly using the contact details below.</p>
-  
-    <p><strong>Jack Giordano</strong><br>
-    Email: <a href="mailto:jackson@giordano.us">jackson@giordano.us</a><br>
-    Phone: <a href="tel:+17038509245">703-850-9245</a></p>
-  
-    <p>I look forward to connecting with you and helping with any inquiries you may have.</p>
-  </section>
-
+  <!-- Your main script -->
   <script src="script.js"></script>
 </body>
 </html>
