@@ -15,12 +15,44 @@ body {
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
-/* Chat Styles */
+/* Chatbox Styles */
+.chatbox-wrapper {
+  /* Add a bit of padding so content isn't behind header */
+  padding-top: 60px;
+}
+
+.top-header {
+  position: relative;         /* so child elements can be absolutely positioned */
+  background-color: #33343f;  /* or your preferred color */
+  height: 30px;               /* the fixed height of your header bar */
+  width: 100%;
+  overflow: visible;          /* or hidden if you want to clip any overhang */
+}
+
+.header-logo {
+  position: absolute;         /* absolutely position the logo inside .top-header */
+  left: 50%;                  /* center horizontally */
+  top: 150%;                   /* center vertically */
+  transform: translate(-50%, -50%); /* move it back up & left by half its size */
+  width: 400px;               /* your desired logo width */
+  height: auto;               /* maintain aspect ratio */
+  pointer-events: none;       /* optional: lets clicks go 'through' the image */
+}
+
+
+/* Message Box for chat */
+.message-box {
+  height: calc(100vh - 7rem);
+  overflow-y: scroll; /* always show scrollbar */
+  padding-bottom: 4rem;
+}
+
+
+/* Chat bubbles */
 .chat {
   display: flex;
   gap: 20px;
   padding: 25px;
-  color: #fff;
   font-size: 15px;
   font-weight: 300;
 }
@@ -28,6 +60,7 @@ body {
 .chat img {
   width: 35px;
   height: 35px;
+  border-radius: 50%; /* optional if you want round avatars */
 }
 
 .response {
@@ -40,7 +73,6 @@ body {
   bottom: 0;
   height: 5rem;
   width: 100%;
-  display: -webkit-flex;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -53,7 +85,6 @@ body {
   border-radius: 5px;
   width: 60vw;
   padding: 10px;
-  display: -webkit-flex;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -73,7 +104,7 @@ body {
   color: #ccc;
 }
 
-.messagebar button {
+.bar-wrapper button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,178 +112,34 @@ body {
   border: none;
   color: #fff;
   cursor: pointer;
+  font-size: 1.25rem;
 }
 
-/* Chatbox and Message Box */
-.message-box {
-  height: -webkit-calc(100vh - 7rem);
-  height: calc(100vh - 7rem); /* Adjust height dynamically */
-  overflow-y: auto;
-}
-
-/* Top Header */
-.top-header {
-  width: 100%;
-  background-color: #33343f;
-  color: #ffffff;
-  padding: 10px 0;
-  text-align: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-}
-
-/* Hamburger Icon */
-.hamburger-icon {
-  position: absolute;
-  top: 15px;
-  left: 20px; /* Position hamburger on the left */
-  cursor: pointer;
-  font-size: 30px;
-  z-index: 200; /* Keep icon on top of the nav menu */
-  font-family: 'Material Symbols Rounded', sans-serif;
-  -webkit-font-smoothing: antialiased; /* Better rendering for Safari */
-}
-
-.hamburger-icon::before {
-  content: '\2630'; /* Unicode fallback for the hamburger menu icon */
-  font-family: sans-serif;
-  font-size: 30px;
-  display: inline-block;
-}
-
-.material-symbols-rounded::before {
-  content: none; /* Remove fallback content when the font loads */
-}
-
-/* Navigation Menu */
-.nav-menu {
-  display: none;
-  background-color: #494b59;
-  position: fixed;
-  top: 0;
-  left: 0; /* Slide in from the left */
-  width: 200px;
-  height: 100vh;
-  padding-top: 60px;
-  z-index: 100;
-}
-
-.nav-menu ul {
-  list-style: none;
-  padding: 0;
-}
-
-.nav-menu li {
-  margin: 20px 0;
-}
-
-.nav-menu li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-  padding: 10px;
+/* Markdown Code Blocks, etc. */
+.chat.response code,
+.chat.response pre {
+  background-color: #2b2b33;
+  color: #f8f8f2;
+  padding: 0.1rem;
+  border-radius: 4px;
+  white-space: pre-wrap; /* allow wrapping in code blocks */
   display: block;
+  margin: 0.5rem 0;
 }
 
-.nav-menu li a:hover {
-  background-color: #33343f;
-}
-
-.nav-menu.show {
-  display: block;
-}
-
-/* Sections for Pages */
-section {
-  padding: 100px 20px;
-}
-
-section h2 {
-  color: #ffffff;
-  margin-bottom: 10px;
-}
-
-section p {
-  color: #cccccc;
-}
-
-/* Specific Spacing for About Us Section */
-#about p {
-  margin-bottom: 15px;
-}
-
-/* Specific Spacing for Contact Us Section */
-#contact p {
-  margin-bottom: 15px;
-}
-
-/* Ensure email and phone links in Contact Us have the same color as regular text */
-#contact a {
-  color: inherit; /* Make link the same color as surrounding text */
-  text-decoration: none; /* Remove the underline */
-}
-
-#contact a:hover {
-  text-decoration: underline; /* Optional underline on hover */
-}
-
-/* Mobile Specific Adjustments */
+/* Mobile adjustments */
 @media (max-width: 600px) {
-    #about, #contact {
-  display: none; /* Hide these sections by default */
-}
-     /* Ensure the chatbox-wrapper has enough padding on mobile */
+  /* Adjust chatbox for smaller screens */
   .chatbox-wrapper {
-    padding-top: 80px; /* Adjust this if needed for more space */
+    padding-top: 50px;
   }
-  /* Make the hamburger icon bigger and easier to tap */
-  .hamburger-icon {
-    font-size: 40px;
-    top: 10px;
-    left: 10px;
-  }
+
+  /* Increase input size on mobile for ease */
   .bar-wrapper input {
-  width: 100%;
-  padding: 5px;
-  border: none;
-  outline: none;
-  font-size: 16px; /* Ensure font size is at least 16px */
-  background: none;
-  color: #ccc;
-}
-
-
-  /* Adjust the width of the nav menu */
-  .nav-menu {
-    width: 80vw;
-    left: 0;
+    font-size: 16px;
   }
 
-  /* Reduce padding for sections on mobile */
-  section {
-    padding: 20px 10px;
-  }
-
-  /* Adjust the width of the input bar for mobile */
   .bar-wrapper {
     width: 90vw;
   }
-
-  /* Adjust font sizes for mobile readability */
-  section h2 {
-    font-size: 1.5em;
-  }
-
-  section p {
-    font-size: 1em;
-  }
-
-  /* Adjust the height of the message box for mobile */
-  .message-box {
-    height: -webkit-calc(100vh - 7rem); /* Safari-specific */
-    height: calc(100vh - 7rem);
-  }
-
 }
