@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom scrollbar for all themes */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Smooth theme transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+    transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Enhanced focus styles */
+input:focus {
+  outline: none;
+}
+
+/* Prevent zoom on iOS */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Theme-specific glow effects */
+.neon-glow {
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.3), 0 0 40px rgba(236, 72, 153, 0.1);
+}
+
+.ocean-glow {
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.3), 0 0 40px rgba(20, 184, 166, 0.1);
+}
+
+.forest-glow {
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.3), 0 0 40px rgba(52, 211, 153, 0.1);
+}
+
+.minimal-glow {
+  box-shadow: 0 0 20px rgba(148, 163, 184, 0.2), 0 0 40px rgba(148, 163, 184, 0.1);
+}
+
+/* Backdrop blur enhancements */
+.backdrop-blur-xl {
+  backdrop-filter: blur(24px);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+/* Enhanced animations */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+/* Theme selector animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.theme-selector {
+  animation: slideIn 0.2s ease-out;
+}
+
+/* Privacy badge pulse animation */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.privacy-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Enhanced markdown styles for all themes */
+.prose-invert {
+  --tw-prose-body: rgb(229 231 235);
+  --tw-prose-headings: rgb(255 255 255);
+  --tw-prose-lead: rgb(156 163 175);
+  --tw-prose-links: rgb(96 165 250);
+  --tw-prose-bold: rgb(255 255 255);
+  --tw-prose-counters: rgb(156 163 175);
+  --tw-prose-bullets: rgb(75 85 99);
+  --tw-prose-hr: rgb(55 65 81);
+  --tw-prose-quotes: rgb(229 231 235);
+  --tw-prose-quote-borders: rgb(55 65 81);
+  --tw-prose-captions: rgb(156 163 175);
+  --tw-prose-code: rgb(229 231 235);
+  --tw-prose-pre-code: rgb(229 231 235);
+  --tw-prose-pre-bg: rgb(17 24 39);
+  --tw-prose-th-borders: rgb(55 65 81);
+  --tw-prose-td-borders: rgb(55 65 81);
+}
+
+/* Theme-specific code block styling */
+.neon-theme .prose pre {
+  background: rgba(88, 28, 135, 0.3) !important;
+  border-color: rgba(236, 72, 153, 0.3) !important;
+}
+
+.ocean-theme .prose pre {
+  background: rgba(12, 74, 110, 0.3) !important;
+  border-color: rgba(20, 184, 166, 0.3) !important;
+}
+
+.forest-theme .prose pre {
+  background: rgba(6, 78, 59, 0.3) !important;
+  border-color: rgba(52, 211, 153, 0.3) !important;
+}
+
+.minimal-theme .prose pre {
+  background: rgba(30, 41, 59, 0.3) !important;
+  border-color: rgba(71, 85, 105, 0.3) !important;
+}
+
+/* File upload hover effects */
+.file-upload-hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+/* Privacy indicator styles */
+.privacy-indicator {
+  position: relative;
+  overflow: hidden;
+}
+
+.privacy-indicator::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Enhanced button interactions */
+.theme-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+.theme-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Selection styling for all themes */
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: white;
+}
+
+/* Responsive design enhancements */
+@media (max-width: 640px) {
+  .theme-selector {
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .backdrop-blur-xl,
+  .backdrop-blur-sm {
+    backdrop-filter: none;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+}
