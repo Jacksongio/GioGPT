@@ -2,7 +2,8 @@
 
 import type React from "react"
 
-import { useChat, Message } from "ai/react"
+import { useChat } from "@ai-sdk/react"
+import type { Message } from "ai"
 import { nanoid } from "nanoid"
 import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
