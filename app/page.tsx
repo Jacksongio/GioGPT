@@ -1,5 +1,7 @@
 "use client"
 
+export const dynamic = "force-dynamic"
+
 import type React from "react"
 
 import { useChat } from "@ai-sdk/react"
